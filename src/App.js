@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { ToDoCounter } from './ToDoCounter';
+import { ToDoSearch } from './ToDoSearch';
+import { ToDoList } from './ToDoList';
+import { ToDoItem } from './ToDoItem';
+import { CreateToDoButton } from './CreateToDoButton';
+// import './App.css';
+
+const toDos = [
+  {text: "Look up for inspiration", completed: false},
+  {text: "CSS writing", completed: false},
+  {text: "Lunch break", completed: false}
+]
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ToDoCounter/>
+      <ToDoSearch/>
+      <ToDoList>
+        {toDos.map(toDo => (<ToDoItem key={toDo.text} text={toDo.text} />))}
+      </ToDoList>
+      <CreateToDoButton/>
+    </>
   );
 }
 

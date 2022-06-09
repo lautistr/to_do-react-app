@@ -1,8 +1,12 @@
 import React from "react";
 
 function CreateToDoButton() {
+    const onClickButton = () => {
+        alert('Modal opened');
+    }
+    
     return (
-        <button>+</button>
+        <button onClick={onClickButton}>+</button>
     )
 }
 

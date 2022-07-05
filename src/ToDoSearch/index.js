@@ -1,4 +1,5 @@
 import React from "react";
+import './styles.css';
 
 function ToDoSearch({ searchValue, setSearchValue }){
   
@@ -11,6 +12,7 @@ function ToDoSearch({ searchValue, setSearchValue }){
         <input
             placeholder="Search"
             value={searchValue}
+            className="TodoSearch"
             onChange={onSearchValueChange}
         />
     )

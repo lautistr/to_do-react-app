@@ -1,4 +1,5 @@
 import React from 'react';
+import './styles.css';
 
 function ToDoForm({ toggleModalOpener, createToDo }) {
     const [ newToDoText, setNewToDoText ] = React.useState('');
@@ -27,15 +28,17 @@ function ToDoForm({ toggleModalOpener, createToDo }) {
                 onChange={onChange}
                 placeholder='Give this app 5 starts *'
             />
-            <div>
+            <div className="TodoForm-buttonContainer">
                 <button 
                     type='button'
+                    className="TodoForm-button TodoForm-button-cancel"
                     onClick={onCancel}
                 >
                     Cancel
                 </button>
                 <button 
                     type='submit'
+                    className="TodoForm-button TodoForm-button-add"
                 >
                     Create
                 </button>

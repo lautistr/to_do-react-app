@@ -1,0 +1,48 @@
+.ToDoRandom {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 48px;
+}
+
+.ToDoRandom h3 {
+    font-size: 20px;
+    text-align: center;
+}
+
+.ToDoRandom form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+}
+
+.ToDoRandom li {
+    margin: 20px 0;
+    background-color: #FAFAFA;
+    box-shadow: 0px 5px 50px rgba(32, 35, 41, 0.15);
+}
+
+.ToDoRandom p {
+    margin: 24px 16px 24px 16px;
+    /* width: calc(100% - 120px); */
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 400;
+  }
+
+.ToDoRandom div {
+    display: flex;
+    justify-content: space-evenly;
+}
+.ToDoRandom button {
+    background-color:#61dafa;
+    box-shadow:0 5px 25px rgba(97,218,250,.5);
+    border:none;
+    border-radius: 4px;
+    cursor:pointer;
+    font-size:14px;
+    font-weight:700;
+    color:#fafafa;
+    height: 32px;
+}

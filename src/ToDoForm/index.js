@@ -26,7 +26,7 @@ function ToDoForm({ toggleModalOpener, createToDo }) {
             <textarea
                 value={newToDoText}
                 onChange={onChange}
-                placeholder='Give this app 5 starts *'
+                placeholder='You are gonna crush it today!'
             />
             <div className="TodoForm-buttonContainer">
                 <button 

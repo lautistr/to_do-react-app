@@ -1,5 +1,6 @@
 import React from "react";
 import { useTodos } from './useTodos';
+import { useGetRandomActivity } from './useGetRandomActivity';
 import { ToDoCounter } from '../ToDoCounter';
 import { ToDoSearch } from '../ToDoSearch';
 import { ToDoList } from '../ToDoList';
@@ -8,6 +9,7 @@ import { CreateToDoButton } from '../CreateToDoButton';
 import { Modal } from '../Modal';
 import { ToDoForm } from '../ToDoForm';
 import { ToDoHeader } from '../ToDoHeader';
+import { ToDoRandom } from '../ToDoRandom';
 
 
 function App() {  
@@ -38,7 +40,12 @@ function App() {
         />
       </ToDoHeader>
 
-      <ToDoList>        
+      <ToDoList>
+        {(totalToDos === 0 || completedToDos === totalToDos) &&
+           <ToDoRandom 
+            createToDo={createToDo}
+            useGetRandomActivity={useGetRandomActivity}  
+          />}   
         {searchedToDos.map(toDo => (
           <ToDoItem
             key={toDo.text}

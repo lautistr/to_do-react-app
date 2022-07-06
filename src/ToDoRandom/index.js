@@ -9,7 +9,7 @@ function ToDoRandom({ createToDo, useGetRandomActivity }) {
 
     const onCreate = (event) => {
         event.preventDefault();
-        createToDo(randomActivity.activity);
+        createToDo(randomActivity.item);
     }
 
 
@@ -23,7 +23,7 @@ function ToDoRandom({ createToDo, useGetRandomActivity }) {
             <form onSubmit={onCreate}>
                 {randomActivity &&
                     <li>
-                        <p>{randomActivity.activity}</p>
+                        <p>{randomActivity.item}</p>
                     </li>}
                 <div>
                     <button 

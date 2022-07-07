@@ -16,21 +16,16 @@ const api = axios.create({
 
 const useGetRandomActivity = () => {
     const [ randomActivity, setRandomActivity ] = useState();
-
+    const [loading, setLoading ] = useState(false);
 
     const getRandomActivity = async () => {
         const response = await api();
         console.log(response.data)
         setRandomActivity(response.data);
-
-        // axios.request(options).then(function (response) {
-        //     setRandomActivity(response.data);
-        // }).catch(function (error) {
-        //     console.error(error);
-        // });
+        setLoading(false);
     }
 
-    return {randomActivity, getRandomActivity}
+    return {randomActivity, getRandomActivity, loading, setLoading}
 }
 
 export { useGetRandomActivity };

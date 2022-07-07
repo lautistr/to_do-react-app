@@ -42,10 +42,10 @@ function App() {
 
       <ToDoList>
         {(totalToDos === 0 || completedToDos === totalToDos) &&
-           <ToDoRandom 
+           <ToDoRandom
             createToDo={createToDo}
-            useGetRandomActivity={useGetRandomActivity}  
-          />}   
+            useGetRandomActivity={useGetRandomActivity} 
+           />}   
         {searchedToDos.map(toDo => (
           <ToDoItem
             key={toDo.text}

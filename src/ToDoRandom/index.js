@@ -1,17 +1,21 @@
 import React from "react";
 import './styles.css';
 
+import { ToDoLoader } from '../ToDoLoader';
+
 function ToDoRandom({ createToDo, useGetRandomActivity }) {
+
     const {
         randomActivity,  
-        getRandomActivity
+        getRandomActivity,
+        loading,
+        setLoading
     } = useGetRandomActivity();
 
     const onCreate = (event) => {
         event.preventDefault();
         createToDo(randomActivity.item);
     }
-
 
     return (
         
@@ -21,14 +25,17 @@ function ToDoRandom({ createToDo, useGetRandomActivity }) {
                 Hit the button!
             </h3>
             <form onSubmit={onCreate}>
-                {randomActivity &&
-                    <li>
-                        <p>{randomActivity.item}</p>
-                    </li>}
+                { loading 
+                    ? <li> <p>{<ToDoLoader/>}</p> </li>
+                    : (randomActivity) && <li> <p>{randomActivity.item}</p> </li>
+                }
                 <div>
                     <button 
                         type='button'
-                        onClick={() => getRandomActivity()}
+                        onClick={() => {
+                            setLoading(true)
+                            getRandomActivity()
+                        }}
                     >
                         Get a fun activity!
                     </button>

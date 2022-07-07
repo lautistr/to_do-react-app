@@ -4,14 +4,14 @@ import ContentLoader from "react-content-loader"
 const ToDoLoader = (props) => (
   <ContentLoader 
     speed={1.8}
-    width={239}
-    height={72}
-    viewBox="0 0 279 72"
+    width={189}
+    height={42}
+    viewBox="0 0 189 42"
     backgroundColor="#FAFAFA"
     foregroundColor="#ecebeb"
     {...props}
   >
-    <rect x="15" y="10" rx="5" ry="5" width="249" height="52" />
+    <rect x="15" y="10" rx="5" ry="5" width="169" height="32" />
   </ContentLoader>
 )
 

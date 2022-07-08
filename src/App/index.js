@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { useTodos } from './useTodos';
 import { useGetRandomActivity } from './useGetRandomActivity';
 import { ToDoCounter } from '../ToDoCounter';
@@ -10,7 +10,10 @@ import { Modal } from '../Modal';
 import { ToDoForm } from '../ToDoForm';
 import { ToDoHeader } from '../ToDoHeader';
 import { ToDoRandom } from '../ToDoRandom';
+import { RolPreview } from '../RolPreview';
+import { RolList } from '../RolList';
 
+import './App.css';
 
 function App() {  
 
@@ -27,19 +30,37 @@ function App() {
     setSearchValue,
   } = useTodos();
 
+  const [open, setOpen ] = useState(true);
+  const closeSearchBar = () => {
+    setOpen(true)
+  }
+  const openSearchBar = (event) => {
+    setOpen(false)
+    event.stopPropagation();
+  }
+
   return (
-    <>
-      <ToDoHeader>
-        <ToDoCounter
+    <div onClick={closeSearchBar} >
+      <ToDoHeader onClick={openSearchBar}>
+        {/* <ToDoCounter
           totalToDos={totalToDos}
           completedToDos={completedToDos}
-        />
+        /> */}
         <ToDoSearch
           searchValue={searchValue}
           setSearchValue={setSearchValue}
+          open={open}
+          setOpen={setOpen}
+          
         />
       </ToDoHeader>
-
+      <RolList>
+        <RolPreview/>
+        <RolPreview/>
+        <RolPreview/>
+        <RolPreview/>
+        <RolPreview/>
+      </RolList>
       <ToDoList>
         {(totalToDos === 0 || completedToDos === totalToDos) &&
            <ToDoRandom
@@ -71,7 +92,7 @@ function App() {
         modalOpener={modalOpener}
         toggleModalOpener={toggleModalOpener}
       />
-    </>
+    </div>
   );
 }
 

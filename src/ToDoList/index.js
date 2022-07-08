@@ -3,8 +3,9 @@ import './styles.css';
 
 function ToDoList(props) {
     return (
-        <section>
-            <ul>
+        <section className="ToDoList">
+            <h3 className="ToDoList-Title">TODAY'S TASKS</h3>
+            <ul className="ToDoList-TasksContainer">
                 {props.children}
             </ul>
         </section>

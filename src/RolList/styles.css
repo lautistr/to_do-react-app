@@ -1,0 +1,37 @@
+:root {
+    --soft-magenta: #d455f8;
+    --soft-blue: #5073f6;
+    --dark-moderate-blue: #344fa1;
+    --dark-blue: #193588;
+    --grayish-blue: #bbc2d8;
+    --dark-grayish-blue: #48466b;
+    --very-dark-blue: #09155a;
+    --mostly-desaturated-blue: #7d80aa;
+    --mostly-dark-blue: #010319;
+    --dark-violet: #552c95;
+
+    --ssm: 12px;
+    --sm: 14px;
+    --md: 16px;
+    --lg: 18px;
+}
+
+.RolList-Title {
+    color: #95b2f9;
+    font-weight: 400;
+    font-size: var(--ssm);
+    margin-left: 36px;
+}
+
+.RolList-TasksContainer {
+    margin-left: 36px;
+    padding: 0 0 12px 0;
+    list-style: none;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.RolList-TasksContainer::-webkit-scrollbar {
+    display: none;
+}

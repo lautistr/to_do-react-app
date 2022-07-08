@@ -1,0 +1,43 @@
+:root {
+    --soft-magente: #d455f8;
+    --soft-blue: #5073f6;
+    --dark-moderate-blue: #344fa1;
+    --dark-blue: #193588;
+    --grayish-blue: #bbc2d8;
+    --dark-grayish-blue: #48466b;
+    --very-dark-blue: #09155a;
+    --mostly-desaturated-blue: #7d80aa;
+    --mostly-dark-blue: #010319;
+    --dark-violet: #552c95;
+
+    --ssm: 12px;
+    --sm: 14px;
+    --md: 16px;
+    --lg: 18px;
+}
+
+
+.RolPreview {
+    width: 160px;
+    height: 92px;
+    border-radius: 20px;
+    background-color: var(--very-dark-blue);
+    box-shadow: 0px 5px 10px rgba(32, 35, 41, 0.6);
+    display: inline-flex;
+    flex-direction: column;
+    position: relative;
+    margin-right: 20px;
+}
+
+.RolPreview-Tasks {
+    padding: 20px 0 6px 16px;
+    font-size: var(--ssm);
+    color: var(--mostly-desaturated-blue)
+}
+
+.RolPreview-Title {
+    margin: 0;
+    padding: 0 0 6px 16px;
+    font-size: var(--md);
+    font-weight: bold;
+}

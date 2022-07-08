@@ -3,7 +3,7 @@ import { useLocalStorage } from './useLocalStorage';
 
 function useTodos() {
     const [ toDos, storageToDos ] = useLocalStorage('TODOS_V1', [])
-    const [ modalOpener, toggleModalOpener ] = React.useState(false);
+    const [ toDosModalOpener, toggleToDosModalOpener ] = React.useState(false);
 
     const [searchValue, setSearchValue] = React.useState('');
   
@@ -52,8 +52,8 @@ function useTodos() {
       toggleToDoState,
       deleteToDo,
       createToDo,
-      modalOpener,
-      toggleModalOpener,
+      toDosModalOpener,
+      toggleToDosModalOpener,
     };
 }
 

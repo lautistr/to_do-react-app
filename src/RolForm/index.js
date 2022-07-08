@@ -1,44 +1,44 @@
 import React from 'react';
 import './styles.css';
 
-function ToDoForm({ toggleToDosModalOpener, createToDo }) {
-    const [ newToDoText, setNewToDoText ] = React.useState('');
+function RolForm({ toggleRolsModalOpener, createRol }) {
+    const [ newRolText, setNewRolText ] = React.useState('');
 
     const onChange = (event) => {
-        setNewToDoText(event.target.value);
+        setNewRolText(event.target.value);
     }
 
     const onCreate = (event) => {
         event.preventDefault();
-        createToDo(newToDoText)
-        toggleToDosModalOpener(false)
+        createRol(newRolText)
+        toggleRolsModalOpener(false)
     }
 
     const onCancel = () => {
-        toggleToDosModalOpener(false)
+        toggleRolsModalOpener(false)
     }
 
     return (
         <form onSubmit={onCreate}>
             <label>
-                Create your task
+                Create your rol
             </label>
             <textarea
-                value={newToDoText}
+                value={newRolText}
                 onChange={onChange}
                 placeholder='You are gonna crush it today!'
             />
-            <div className="TodoForm-buttonContainer">
+            <div className="RolForm-buttonContainer">
                 <button 
                     type='button'
-                    className="TodoForm-button TodoForm-button-cancel"
+                    className="RolForm-button RolForm-button-cancel"
                     onClick={onCancel}
                 >
                     Cancel
                 </button>
                 <button 
                     type='submit'
-                    className="TodoForm-button TodoForm-button-add"
+                    className="RolForm-button RolForm-button-add"
                 >
                     Create
                 </button>
@@ -47,4 +47,4 @@ function ToDoForm({ toggleToDosModalOpener, createToDo }) {
     )
 }
 
-export { ToDoForm };
+export { RolForm };

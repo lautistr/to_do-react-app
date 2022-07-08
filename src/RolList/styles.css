@@ -16,6 +16,11 @@
     --lg: 18px;
 }
 
+/* .RolList {
+    width: 85%;
+    margin: 0 auto;
+} */
+
 .RolList-Title {
     color: #95b2f9;
     font-weight: 400;
@@ -24,7 +29,8 @@
 }
 
 .RolList-TasksContainer {
-    margin-left: 36px;
+    margin: 0 auto;
+    width: 85%;
     padding: 0 0 12px 0;
     list-style: none;
     overflow-x: scroll;

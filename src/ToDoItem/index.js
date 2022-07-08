@@ -15,7 +15,7 @@ function ToDoItem(props) {
                 className="Icon Icon-delete"
                 onClick={props.onDelete}
                 >
-                {/* X */}
+                X
             </span>
         </li>
     )

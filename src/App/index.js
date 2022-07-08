@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { useTodos } from './useTodos';
+import { useRols } from './useRols';
 import { useGetRandomActivity } from './useGetRandomActivity';
 import { ToDoCounter } from '../ToDoCounter';
 import { ToDoSearch } from '../ToDoSearch';
@@ -12,6 +13,7 @@ import { ToDoHeader } from '../ToDoHeader';
 import { ToDoRandom } from '../ToDoRandom';
 import { RolPreview } from '../RolPreview';
 import { RolList } from '../RolList';
+import { RolForm } from '../RolForm';
 
 import './App.css';
 
@@ -21,8 +23,8 @@ function App() {
     searchedToDos,
     toggleToDoState,
     deleteToDo,
-    modalOpener,
-    toggleModalOpener,
+    toDosModalOpener,
+    toggleToDosModalOpener,
     totalToDos,
     completedToDos,
     createToDo,
@@ -30,10 +32,24 @@ function App() {
     setSearchValue,
   } = useTodos();
 
+  const {
+    rols,
+    rolsModalOpener,
+    toggleRolsModalOpener,
+    totalRols,
+    createRol,
+  } = useRols();
+
+  console.log(totalRols)
+
   const [open, toggleOpen ] = useState(false);
   const closeSearchBar = () => {
     toggleOpen(false)
   }
+
+  const onClickButton = () => {
+    toggleRolsModalOpener(!rolsModalOpener);
+}
 
   return (
     <div onClick={closeSearchBar} >
@@ -47,15 +63,25 @@ function App() {
           setSearchValue={setSearchValue}
           open={open}
           toggleOpen={toggleOpen}
-          
         />
       </ToDoHeader>
       <RolList>
-        <RolPreview/>
-        <RolPreview/>
-        <RolPreview/>
-        <RolPreview/>
-        <RolPreview/>
+        {rols.map(rol => (
+            <RolPreview
+              tasksNumber={2}
+              tasksOrRols={'tasks'}
+              key={rol}
+              rolTitle={rol}
+              completed={0}
+            />
+          ))}
+        <RolPreview
+          tasksNumber={totalRols || 0}
+          tasksOrRols={'rols'}
+          rolTitle={`Create ${!totalRols ? 'your first' : "new"}!`}
+          completed={0}
+          onClick={onClickButton}
+        />
       </RolList>
       <ToDoList>
         {(totalToDos === 0 || completedToDos === totalToDos) &&
@@ -74,19 +100,27 @@ function App() {
         ))}
       </ToDoList>
       
-      {!!modalOpener && 
+      {!!toDosModalOpener && 
         <Modal>
           <ToDoForm
             createToDo={createToDo}
-            toggleModalOpener={toggleModalOpener}
+            toggleToDosModalOpener={toggleToDosModalOpener}
+          />
+        </Modal>
+        }
+      {!!rolsModalOpener && 
+        <Modal>
+          <RolForm
+            createRol={createRol}
+            toggleRolsModalOpener={toggleRolsModalOpener}
           />
         </Modal>
         }
 
 
       <CreateToDoButton
-        modalOpener={modalOpener}
-        toggleModalOpener={toggleModalOpener}
+        toDosModalOpener={toDosModalOpener}
+        toggleToDosModalOpener={toggleToDosModalOpener}
       />
     </div>
   );

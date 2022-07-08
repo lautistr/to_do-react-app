@@ -3,12 +3,14 @@ import { ProgressBar } from '../ProgressBar';
 
 import './styles.css';
 
-function RolPreview () {
+// {tasksNumber, tasksOrRols, rolTitle, completed, rolsModalOpener, toggleRolsModalOpener}
+
+function RolPreview (props) {
     return (
-        <article className='RolPreview'>
-            <span className='RolPreview-Tasks'>12 tasks</span>
-            <p className='RolPreview-Title'>Student</p>
-            <ProgressBar completed={65}/>
+        <article className='RolPreview' onClick={props.onClick}>
+            <span className='RolPreview-Tasks'>{props.tasksNumber} {props.tasksOrRols}</span>
+            <p className='RolPreview-Title'>{props.rolTitle}</p>
+            <ProgressBar completed={props.completed}/>
         </article>
     )
 }

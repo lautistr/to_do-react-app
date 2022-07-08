@@ -3,7 +3,7 @@ import './styles.css';
 
 function CreateToDoButton(props) {
     const onClickButton = () => {
-        props.toggleModalOpener(!props.modalOpener);
+        props.toggleToDosModalOpener(!props.toDosModalOpener);
     }
     
     return (

@@ -1,6 +1,23 @@
+:root {
+    --soft-magenta: #d455f8;
+    --soft-blue: #5073f6;
+    --dark-moderate-blue: #344fa1;
+    --dark-blue: #193588;
+    --grayish-blue: #bbc2d8;
+    --dark-grayish-blue: #48466b;
+    --very-dark-blue: #09155a;
+    --mostly-desaturated-blue: #7d80aa;
+    --mostly-dark-blue: #010319;
+    --dark-violet: #552c95;
+
+    --sm: 14px;
+    --md: 16px;
+    --lg: 18px;
+}
+
 .CreateTodoButton {
-    background-color:#61dafa;
-    box-shadow:0 5px 25px rgba(97,218,250,.5);
+    background-color: var(--soft-magenta);
+    box-shadow:0 5px 25px rgba(92,35,98,.5);
     border:none;
     border-radius:50%;
     cursor:pointer;
@@ -8,8 +25,8 @@
     position:fixed;
     bottom:24px;
     right:24px;
-    font-weight:700;
-    color:#fafafa;
+    font-weight:100;
+    color:white;
     display:flex;
     justify-content:center;
     align-items:center;

@@ -58,7 +58,7 @@ form {
     outline-color: var(--soft-magenta);
   }
   
-  .TodoForm-buttonContainer {
+  .RolForm-buttonContainer {
     margin-top: 14px;
     display: flex;
     justify-content: space-between;
@@ -66,7 +66,7 @@ form {
     width: 100%;
   }
   
-  .TodoForm-button {
+  .RolForm-button {
     cursor: pointer;
     display: inline-block;
     font-size: 20px;
@@ -79,13 +79,13 @@ form {
     font-family: 'Montserrat';
   }
   
-  form .TodoForm-button-add {
+  form .RolForm-button-add {
     background-color: var(--soft-magenta);
     color: white;
     box-shadow: 0px 5px 25px rgba(92,35,98,.5);
   }
   
-  .TodoForm-button-cancel {
+  .RolForm-button-cancel {
     background: transparent;
   }
   

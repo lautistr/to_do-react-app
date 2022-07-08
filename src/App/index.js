@@ -30,18 +30,14 @@ function App() {
     setSearchValue,
   } = useTodos();
 
-  const [open, setOpen ] = useState(true);
+  const [open, toggleOpen ] = useState(false);
   const closeSearchBar = () => {
-    setOpen(true)
-  }
-  const openSearchBar = (event) => {
-    setOpen(false)
-    event.stopPropagation();
+    toggleOpen(false)
   }
 
   return (
     <div onClick={closeSearchBar} >
-      <ToDoHeader onClick={openSearchBar}>
+      <ToDoHeader>
         {/* <ToDoCounter
           totalToDos={totalToDos}
           completedToDos={completedToDos}
@@ -50,7 +46,7 @@ function App() {
           searchValue={searchValue}
           setSearchValue={setSearchValue}
           open={open}
-          setOpen={setOpen}
+          toggleOpen={toggleOpen}
           
         />
       </ToDoHeader>

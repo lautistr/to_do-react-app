@@ -1,18 +1,33 @@
 import React from 'react';
 import { useLocalStorage } from './useLocalStorage';
+import { useTodos } from './useTodos';
 
 function useRols() {
   
   const [ rols, storageRols ] = useLocalStorage('ROLS_V1', []);
   const [ rolsModalOpener, toggleRolsModalOpener ] = React.useState(false);
-
-  const totalRols = rols.length
   
+  const totalRols = rols.length;
+
   const createRol = (text) => {
     const newRols = [...rols];
     newRols.push(text);
     storageRols(newRols)
   }
+
+  const {searchedToDos} = useTodos();
+
+  const tasksForRol = {};
+  const taskCompletedPercentage = {};
+  let tasks = [];
+  rols.forEach(rol => {
+    tasks = searchedToDos.filter(toDo => toDo.rol == rol);
+    tasksForRol[rol] = tasks;
+    taskCompletedPercentage[rol] = ((tasksForRol[rol].filter(task => (task.completed == true)).length)/tasksForRol[rol].length)*100
+    ;
+    console.log('taskCompletedPercentage ' + JSON.stringify(taskCompletedPercentage))
+
+  })
 
   //   const [searchValue, setSearchValue] = React.useState('');
   
@@ -49,6 +64,8 @@ function useRols() {
   return {
       rols,
       rolsModalOpener,
+      tasksForRol,
+      taskCompletedPercentage,
       toggleRolsModalOpener,
       totalRols,
       createRol,

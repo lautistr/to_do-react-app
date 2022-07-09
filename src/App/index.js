@@ -35,12 +35,14 @@ function App() {
   const {
     rols,
     rolsModalOpener,
+    tasksForRol,
+    taskCompletedPercentage,
     toggleRolsModalOpener,
     totalRols,
     createRol,
   } = useRols();
 
-  console.log(totalRols)
+  console.log(tasksForRol);
 
   const [open, toggleOpen ] = useState(false);
   const closeSearchBar = () => {
@@ -68,11 +70,11 @@ function App() {
       <RolList>
         {rols.map(rol => (
             <RolPreview
-              tasksNumber={2}
+              tasksNumber={tasksForRol[rol].length}
               tasksOrRols={'tasks'}
               key={rol}
               rolTitle={rol}
-              completed={0}
+              completed={taskCompletedPercentage[rol]}
             />
           ))}
         <RolPreview
@@ -84,11 +86,11 @@ function App() {
         />
       </RolList>
       <ToDoList>
-        {(totalToDos === 0 || completedToDos === totalToDos) &&
+        {/* {(totalToDos === 0 || completedToDos === totalToDos) &&
            <ToDoRandom
             createToDo={createToDo}
             useGetRandomActivity={useGetRandomActivity} 
-           />}   
+           />}    */}
         {searchedToDos.map(toDo => (
           <ToDoItem
             key={toDo.text}
@@ -105,6 +107,7 @@ function App() {
           <ToDoForm
             createToDo={createToDo}
             toggleToDosModalOpener={toggleToDosModalOpener}
+            rols={rols}
           />
         </Modal>
         }

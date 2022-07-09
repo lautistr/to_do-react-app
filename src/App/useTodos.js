@@ -23,9 +23,9 @@ function useTodos() {
     }
   
   
-    const createToDo = (text) => {
+    const createToDo = (text, rol) => {
       const newToDos = [...toDos];
-      newToDos.push({completed: false, text,});
+      newToDos.push({completed: false, text, rol: rol});
       storageToDos(newToDos)
     }
 

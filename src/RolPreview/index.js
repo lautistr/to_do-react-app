@@ -3,8 +3,6 @@ import { ProgressBar } from '../ProgressBar';
 
 import './styles.css';
 
-// {tasksNumber, tasksOrRols, rolTitle, completed, rolsModalOpener, toggleRolsModalOpener}
-
 function RolPreview (props) {
     return (
         <article className='RolPreview' onClick={props.onClick}>

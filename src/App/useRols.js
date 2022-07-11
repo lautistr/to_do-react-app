@@ -15,7 +15,9 @@ function useRols() {
     storageRols(newRols)
   }
 
-  const {searchedToDos} = useTodos();
+  const {searchedToDos}  = useTodos();
+  // const [toDos, storageToDos]  = useLocalStorage();
+  // console.log(JSON.parse(toDos))
 
   const tasksForRol = {};
   const taskCompletedPercentage = {};
@@ -23,10 +25,7 @@ function useRols() {
   rols.forEach(rol => {
     tasks = searchedToDos.filter(toDo => toDo.rol == rol);
     tasksForRol[rol] = tasks;
-    taskCompletedPercentage[rol] = ((tasksForRol[rol].filter(task => (task.completed == true)).length)/tasksForRol[rol].length)*100
-    ;
-    console.log('taskCompletedPercentage ' + JSON.stringify(taskCompletedPercentage))
-
+    taskCompletedPercentage[rol] = ((tasksForRol[rol].filter(task => (task.completed == true)).length)/tasksForRol[rol].length)*100;
   })
 
   //   const [searchValue, setSearchValue] = React.useState('');

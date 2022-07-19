@@ -30,13 +30,14 @@ function App() {
     createToDo,
     searchValue,
     setSearchValue,
+    tasksForRol,
+    taskCompletedPercentage,
   } = useTodos();
 
   const {
     rols,
     rolsModalOpener,
-    tasksForRol,
-    taskCompletedPercentage,
+    
     toggleRolsModalOpener,
     totalRols,
     createRol,

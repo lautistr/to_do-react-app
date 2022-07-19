@@ -26,7 +26,7 @@ function RolForm({ toggleRolsModalOpener, createRol }) {
             <textarea
                 value={newRolText}
                 onChange={onChange}
-                placeholder='You are gonna crush it today!'
+                placeholder='A balanced life is a happy life!'
             />
             <div className="RolForm-buttonContainer">
                 <button 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLocalStorage } from './useLocalStorage';
+import { useRols } from './useRols';
 
 function useTodos() {
     const [ toDos, storageToDos ] = useLocalStorage('TODOS_V1', [])
@@ -43,6 +44,23 @@ function useTodos() {
       storageToDos(newToDos)
     }
   
+    // rols
+
+    const {rols} = useRols()
+
+    const tasksForRol = {};
+    const taskCompletedPercentage = {};
+    let newTasks = [];
+    rols.forEach(rol => {
+      let tasks = [...toDos]
+      newTasks = tasks.filter(toDo => toDo.rol == rol);
+      console.log('newTasks: ' + JSON.stringify(newTasks))
+      tasksForRol[rol] = newTasks;
+      console.log('tasksForRol: ' + JSON.stringify(tasksForRol))
+      taskCompletedPercentage[rol] = ((tasksForRol[rol].filter(task => (task.completed == true)).length)/tasksForRol[rol].length)*100;
+      console.log('taskCompletedPercentage: ' + JSON.stringify(taskCompletedPercentage))
+    })
+
   return {
       totalToDos,
       completedToDos,
@@ -54,6 +72,8 @@ function useTodos() {
       createToDo,
       toDosModalOpener,
       toggleToDosModalOpener,
+      tasksForRol,
+      taskCompletedPercentage,
     };
 }
 

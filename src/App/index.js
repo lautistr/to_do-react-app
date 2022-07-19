@@ -25,8 +25,8 @@ function App() {
     deleteToDo,
     toDosModalOpener,
     toggleToDosModalOpener,
-    totalToDos,
-    completedToDos,
+    // totalToDos,
+    // completedToDos,
     createToDo,
     searchValue,
     setSearchValue,
@@ -42,8 +42,6 @@ function App() {
     totalRols,
     createRol,
   } = useRols();
-
-  console.log(tasksForRol);
 
   const [open, toggleOpen ] = useState(false);
   const closeSearchBar = () => {

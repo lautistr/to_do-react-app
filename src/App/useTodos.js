@@ -54,11 +54,8 @@ function useTodos() {
     rols.forEach(rol => {
       let tasks = [...toDos]
       newTasks = tasks.filter(toDo => toDo.rol == rol);
-      console.log('newTasks: ' + JSON.stringify(newTasks))
       tasksForRol[rol] = newTasks;
-      console.log('tasksForRol: ' + JSON.stringify(tasksForRol))
       taskCompletedPercentage[rol] = ((tasksForRol[rol].filter(task => (task.completed == true)).length)/tasksForRol[rol].length)*100;
-      console.log('taskCompletedPercentage: ' + JSON.stringify(taskCompletedPercentage))
     })
 
   return {

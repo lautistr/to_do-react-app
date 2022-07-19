@@ -20,7 +20,6 @@ const useGetRandomActivity = () => {
 
     const getRandomActivity = async () => {
         const response = await api();
-        console.log(response.data)
         setRandomActivity(response.data);
         setLoading(false);
     }

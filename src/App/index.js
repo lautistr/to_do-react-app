@@ -101,25 +101,22 @@ function App() {
           />
         ))}
       </ToDoList>
-      
-      {!!toDosModalOpener && 
-        <Modal>
-          <ToDoForm
+
+      {(!!rolsModalOpener || !!toDosModalOpener) && 
+        <Modal
+          toDosModalOpener={toDosModalOpener}
+          rolsModalOpener={rolsModalOpener}
+          ToDoForm={() => <ToDoForm 
             createToDo={createToDo}
             toggleToDosModalOpener={toggleToDosModalOpener}
             rols={rols}
-          />
-        </Modal>
-        }
-      {!!rolsModalOpener && 
-        <Modal>
-          <RolForm
+          />}
+          RolForm={() => <RolForm
             createRol={createRol}
             toggleRolsModalOpener={toggleRolsModalOpener}
-          />
-        </Modal>
-        }
-
+          />}
+        />
+      }
 
       <CreateToDoButton
         toDosModalOpener={toDosModalOpener}

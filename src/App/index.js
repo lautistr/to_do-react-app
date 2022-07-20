@@ -30,8 +30,9 @@ function App() {
     createToDo,
     searchValue,
     setSearchValue,
-    tasksForRol,
+    // tasksForRol,
     taskCompletedPercentage,
+    getRolTasksLength,
   } = useTodos();
 
   const {
@@ -69,7 +70,7 @@ function App() {
       <RolList>
         {rols.map(rol => (
             <RolPreview
-              tasksNumber={tasksForRol[rol].length}
+              tasksNumber={getRolTasksLength(rol)}
               tasksOrRols={'tasks'}
               key={rol}
               rolTitle={rol}

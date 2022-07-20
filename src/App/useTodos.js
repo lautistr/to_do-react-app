@@ -58,6 +58,14 @@ function useTodos() {
       taskCompletedPercentage[rol] = ((tasksForRol[rol].filter(task => (task.completed === true)).length)/tasksForRol[rol].length)*100;
     })
 
+    const getRolTasksLength = (rol) => {
+      const rolLength = 
+        (!tasksForRol[rol])
+          ? 0
+          : tasksForRol[rol].length;
+      return rolLength;
+    }
+
   return {
       totalToDos,
       completedToDos,
@@ -71,6 +79,7 @@ function useTodos() {
       toggleToDosModalOpener,
       tasksForRol,
       taskCompletedPercentage,
+      getRolTasksLength,
     };
 }
 
